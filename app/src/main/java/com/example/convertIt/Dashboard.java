@@ -1,15 +1,11 @@
-package com.example.convertit;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.WindowCompat;
+package com.example.convertIt;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
-
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.WindowCompat;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Dashboard extends AppCompatActivity {
@@ -27,7 +23,6 @@ public class Dashboard extends AppCompatActivity {
                 | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
         decor_View.setSystemUiVisibility(ui_Options);
         setContentView(R.layout.activity_dashboard);
-
 
         ImageButton lengthButton = findViewById(R.id.lengthBtn);
         ImageButton volumeButton = findViewById(R.id.volumeBtn);
@@ -50,21 +45,18 @@ public class Dashboard extends AppCompatActivity {
 
         bottomNavigationView.setSelectedItemId(R.id.nav_home);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
+        bottomNavigationView.setOnNavigationItemSelectedListener(menuItem -> {
+            switch (menuItem.getItemId()) {
 
-                    case R.id.nav_home:
-                        return true;
+                case R.id.nav_home:
+                    return true;
 
-                    case R.id.nav_calculator:
-                        startActivity(new Intent(getApplicationContext(), Calculator.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                }
-                return false;
+                case R.id.nav_calculator:
+                    startActivity(new Intent(getApplicationContext(), Calculator.class));
+                    overridePendingTransition(0, 0);
+                    return true;
             }
+            return false;
         });
 
     }

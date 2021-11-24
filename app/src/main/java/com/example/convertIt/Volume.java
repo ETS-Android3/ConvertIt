@@ -1,21 +1,18 @@
-package com.example.convertit;
+package com.example.convertIt;
 
-import androidx.annotation.NonNull;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.WindowCompat;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import java.text.DecimalFormat;
 
 public class Volume extends AppCompatActivity {
@@ -27,12 +24,12 @@ public class Volume extends AppCompatActivity {
     private EditText editPint;
     private EditText editOunce;
     private String value;
-    private View.OnFocusChangeListener onFocusChangeListener;
     private int focusedViewId;
     private TextWatcher textWatcher;
 
 
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,23 +48,20 @@ public class Volume extends AppCompatActivity {
 
         bottomNavigationView.setSelectedItemId(R.id.nav_home);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
+        bottomNavigationView.setOnNavigationItemSelectedListener(menuItem -> {
+            switch (menuItem.getItemId()) {
 
-                    case R.id.nav_home:
-                        startActivity(new Intent(getApplicationContext(), Dashboard.class));
-                        overridePendingTransition(0, 0);
-                        return true;
+                case R.id.nav_home:
+                    startActivity(new Intent(getApplicationContext(), Dashboard.class));
+                    overridePendingTransition(0, 0);
+                    return true;
 
-                    case R.id.nav_calculator:
-                        startActivity(new Intent(getApplicationContext(), Calculator.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                }
-                return false;
+                case R.id.nav_calculator:
+                    startActivity(new Intent(getApplicationContext(), Calculator.class));
+                    overridePendingTransition(0, 0);
+                    return true;
             }
+            return false;
         });
 
         editMilliliter = findViewById(R.id.milliliter);
@@ -81,8 +75,6 @@ public class Volume extends AppCompatActivity {
 
         ImageButton backButton = findViewById(R.id.backBtn);
         backButton.setOnClickListener(v -> onBackPressed());
-
-
 
         textWatcher = new TextWatcher() {
             @Override
@@ -105,25 +97,21 @@ public class Volume extends AppCompatActivity {
             }
         };
 
-        onFocusChangeListener = new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus){
-                if (hasFocus){
-                    focusedViewId = v.getId();
-                    ((EditText) findViewById(focusedViewId)).addTextChangedListener(textWatcher);
-                    if(focusedViewId == R.id.milliliter){
-                        v.setBackgroundResource(R.drawable.field);
-                    }
+        View.OnFocusChangeListener onFocusChangeListener = (v, hasFocus) -> {
+            if (hasFocus) {
+                focusedViewId = v.getId();
+                ((EditText) findViewById(focusedViewId)).addTextChangedListener(textWatcher);
+                if (focusedViewId == R.id.milliliter) {
+                    v.setBackgroundResource(R.drawable.field);
                 }
-                else{
+            } else {
 
-                    ((EditText) findViewById(focusedViewId)).removeTextChangedListener(textWatcher);
-                    if(focusedViewId != R.id.milliliter){
-                        v.setBackgroundResource(R.drawable.field);
-                    }
+                ((EditText) findViewById(focusedViewId)).removeTextChangedListener(textWatcher);
+                if (focusedViewId != R.id.milliliter) {
+                    v.setBackgroundResource(R.drawable.field);
                 }
-                v.setBackgroundResource(R.drawable.field);
             }
+            v.setBackgroundResource(R.drawable.field);
         };
 
         editMilliliter.setOnFocusChangeListener(onFocusChangeListener);
@@ -131,10 +119,7 @@ public class Volume extends AppCompatActivity {
         editGallon.setOnFocusChangeListener(onFocusChangeListener);
         editPint.setOnFocusChangeListener(onFocusChangeListener);
         editOunce.setOnFocusChangeListener(onFocusChangeListener);
-
-
     }
-
 
     private void clearFields(){
         editMilliliter.setText("");
@@ -144,55 +129,56 @@ public class Volume extends AppCompatActivity {
         editOunce.setText("");
     }
 
+    @SuppressLint("NonConstantResourceId")
     private void convert() {
         try {
-            double num = 0;
-            DecimalFormat dform = new DecimalFormat("###,###,###,###,###,###.#######");
+            double num;
+            DecimalFormat decimalFormat = new DecimalFormat("###,###,###,###,###,###.#######");
             switch (focusedViewId){
 
                 case R.id.milliliter:
                     num = Double.parseDouble(value);
 
-                    editLiter.setText(dform.format((num/1000)));
-                    editGallon.setText(dform.format((num*0.000264)));
-                    editPint.setText(dform.format((num/473)));
-                    editOunce.setText(dform.format((num/29.574)));
+                    editLiter.setText(decimalFormat.format((num/1000)));
+                    editGallon.setText(decimalFormat.format((num*0.000264)));
+                    editPint.setText(decimalFormat.format((num/473)));
+                    editOunce.setText(decimalFormat.format((num/29.574)));
                     break;
 
                 case R.id.liter:
                     num = Double.parseDouble(value);
 
-                    editMilliliter.setText(dform.format((num*1000)));
-                    editGallon.setText(dform.format((num/3.785)));
-                    editPint.setText(dform.format((num*2.113)));
-                    editOunce.setText(dform.format((num*33.814)));
+                    editMilliliter.setText(decimalFormat.format((num*1000)));
+                    editGallon.setText(decimalFormat.format((num/3.785)));
+                    editPint.setText(decimalFormat.format((num*2.113)));
+                    editOunce.setText(decimalFormat.format((num*33.814)));
                     break;
 
                 case R.id.gallon:
                     num = Double.parseDouble(value);
 
-                    editMilliliter.setText(dform.format((num*3785)));
-                    editLiter.setText(dform.format((num*3.785)));
-                    editPint.setText(dform.format((num*8)));
-                    editOunce.setText(dform.format((num*128)));
+                    editMilliliter.setText(decimalFormat.format((num*3785)));
+                    editLiter.setText(decimalFormat.format((num*3.785)));
+                    editPint.setText(decimalFormat.format((num*8)));
+                    editOunce.setText(decimalFormat.format((num*128)));
                     break;
 
                 case R.id.pint:
                     num = Double.parseDouble(value);
 
-                    editMilliliter.setText(dform.format((num*473.176473)));
-                    editLiter.setText(dform.format((num*0.473176)));
-                    editGallon.setText(dform.format((num/8)));
-                    editOunce.setText(dform.format((num*16)));
+                    editMilliliter.setText(decimalFormat.format((num*473.176473)));
+                    editLiter.setText(decimalFormat.format((num*0.473176)));
+                    editGallon.setText(decimalFormat.format((num/8)));
+                    editOunce.setText(decimalFormat.format((num*16)));
                     break;
 
                 case R.id.ounce:
                     num = Double.parseDouble(value);
 
-                    editMilliliter.setText(dform.format((num*29.57353)));
-                    editLiter.setText(dform.format((num/33.814)));
-                    editGallon.setText(dform.format((num/128)));
-                    editPint.setText(dform.format((num/16)));
+                    editMilliliter.setText(decimalFormat.format((num*29.57353)));
+                    editLiter.setText(decimalFormat.format((num/33.814)));
+                    editGallon.setText(decimalFormat.format((num/128)));
+                    editPint.setText(decimalFormat.format((num/16)));
                     break;
             }
 

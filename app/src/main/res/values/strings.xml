@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ConverIt</string>
+    <string name="app_name">ConvertIt</string>
     <string name="logo">logo</string>
     <string name="title">Convert It.</string>
     <string name="caption">Getting the numbers you need!</string>
@@ -31,7 +31,6 @@
     <string name="mass_desp">This weight converter tool is the best tool for converting between different weight units.</string>
     <string name="area_desp">This area conversion calculator will help you quickly switch between any units of area, from both metric and imperial systems.</string>
     <string name="time_desp">If you\'ve come here to easily convert between units of time - you\'ve come to the right place; the time unit converter will serve your every need.</string>
-    <string name="kilo_label">km\t \t \t \t \tKilometer</string>
     <string name="hint">0</string>
     <string name="sampletext">7x2</string>
     <string name="sampleoutput">14.0</string>
@@ -54,5 +53,6 @@
     <string name="number0">0</string>
     <string name="dot">.</string>
     <string name="equals">=</string>
+    <string name="parenthesis">(\t)</string>
 
 </resources>

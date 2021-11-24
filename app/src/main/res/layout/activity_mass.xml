@@ -77,7 +77,7 @@
         android:layout_marginEnd="40dp"
         android:fontFamily="@font/poppins"
         android:text="@string/mass_desp"
-        android:textColor="@color/grey_font"
+        android:textColor="@color/border"
         android:textSize="11sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -86,10 +86,11 @@
 
     <EditText
         android:id="@+id/milligram"
-        android:layout_width="320dp"
+        android:layout_width="330dp"
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
         android:background="@drawable/field"
+        android:cursorVisible="false"
         android:drawableStart="@drawable/milligram"
         android:ems="10"
         android:fontFamily="@font/poppins"
@@ -100,21 +101,21 @@
         android:minHeight="48dp"
         android:paddingStart="10dp"
         android:paddingEnd="12dp"
-        android:cursorVisible="false"
         android:textDirection="rtl"
-        android:textSize="14sp"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/massBoxCaption"
-        tools:ignore="RtlSymmetry,SpeakableTextPresentCheck,LabelFor" />
+        tools:ignore="RtlSymmetry,SpeakableTextPresentCheck,LabelFor,TextContrastCheck,DuplicateSpeakableTextCheck" />
 
     <EditText
         android:id="@+id/grams"
-        android:layout_width="320dp"
+        android:layout_width="330dp"
         android:layout_height="50dp"
         android:layout_marginTop="12dp"
         android:background="@drawable/field"
+        android:cursorVisible="false"
         android:drawableStart="@drawable/gram"
         android:ems="10"
         android:fontFamily="@font/poppins"
@@ -125,21 +126,21 @@
         android:minHeight="48dp"
         android:paddingStart="10dp"
         android:paddingEnd="12dp"
-        android:cursorVisible="false"
         android:textDirection="rtl"
-        android:textSize="14sp"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="@+id/milligram"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="@+id/milligram"
         app:layout_constraintTop_toBottomOf="@+id/milligram"
-        tools:ignore="RtlSymmetry,SpeakableTextPresentCheck,LabelFor" />
+        tools:ignore="RtlSymmetry,SpeakableTextPresentCheck,LabelFor,TextContrastCheck" />
 
     <EditText
         android:id="@+id/kilogram"
-        android:layout_width="320dp"
+        android:layout_width="330dp"
         android:layout_height="50dp"
         android:layout_marginTop="12dp"
         android:background="@drawable/field"
+        android:cursorVisible="false"
         android:drawableStart="@drawable/kilogram"
         android:ems="10"
         android:fontFamily="@font/poppins"
@@ -150,22 +151,22 @@
         android:minHeight="48dp"
         android:paddingStart="10dp"
         android:paddingEnd="12dp"
-        android:cursorVisible="false"
         android:textDirection="rtl"
-        android:textSize="14sp"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="@+id/grams"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="@+id/grams"
         app:layout_constraintTop_toBottomOf="@+id/grams"
-        tools:ignore="RtlSymmetry,SpeakableTextPresentCheck,LabelFor" />
+        tools:ignore="RtlSymmetry,SpeakableTextPresentCheck,LabelFor,TextContrastCheck" />
 
 
     <EditText
         android:id="@+id/tons"
-        android:layout_width="320dp"
+        android:layout_width="330dp"
         android:layout_height="50dp"
         android:layout_marginTop="12dp"
         android:background="@drawable/field"
+        android:cursorVisible="false"
         android:drawableStart="@drawable/tons"
         android:ems="10"
         android:fontFamily="@font/poppins"
@@ -176,22 +177,22 @@
         android:minHeight="48dp"
         android:paddingStart="10dp"
         android:paddingEnd="12dp"
-        android:cursorVisible="false"
         android:textDirection="rtl"
-        android:textSize="14sp"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="@+id/kilogram"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="@+id/kilogram"
         app:layout_constraintTop_toBottomOf="@+id/kilogram"
-        tools:ignore="RtlSymmetry,SpeakableTextPresentCheck,LabelFor" />
+        tools:ignore="RtlSymmetry,SpeakableTextPresentCheck,LabelFor,TextContrastCheck" />
 
 
     <EditText
         android:id="@+id/pounds"
-        android:layout_width="320dp"
+        android:layout_width="330dp"
         android:layout_height="50dp"
         android:layout_marginTop="12dp"
         android:background="@drawable/field"
+        android:cursorVisible="false"
         android:drawableStart="@drawable/pounds"
         android:ems="10"
         android:fontFamily="@font/poppins"
@@ -202,14 +203,13 @@
         android:minHeight="48dp"
         android:paddingStart="10dp"
         android:paddingEnd="12dp"
-        android:cursorVisible="false"
         android:textDirection="rtl"
-        android:textSize="14sp"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="@+id/tons"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="@+id/tons"
         app:layout_constraintTop_toBottomOf="@+id/tons"
-        tools:ignore="RtlSymmetry,SpeakableTextPresentCheck,LabelFor" />
+        tools:ignore="RtlSymmetry,SpeakableTextPresentCheck,LabelFor,TextContrastCheck" />
 
     <ImageButton
         android:id="@+id/clearBtn"

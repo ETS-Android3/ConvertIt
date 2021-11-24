@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.convertit">
+    package="com.example.convertIt">
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/logo"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/logo"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ConverIt.MyConvertIt">
+        android:theme="@style/Theme.ConvertIt.MyConvertIt">
         <activity
-            android:name="com.example.convertit.Time"
+            android:name="com.example.convertIt.Time"
             android:exported="false" />
         <activity
-            android:name="com.example.convertit.Area"
+            android:name="com.example.convertIt.Area"
             android:exported="false" />
         <activity
-            android:name="com.example.convertit.Mass"
+            android:name="com.example.convertIt.Mass"
             android:exported="false" />
         <activity
-            android:name="com.example.convertit.Volume"
+            android:name="com.example.convertIt.Volume"
             android:exported="false" />
         <activity
-            android:name="com.example.convertit.Length"
+            android:name="com.example.convertIt.Length"
             android:exported="false" />
         <activity
-            android:name="com.example.convertit.Calculator"
+            android:name="com.example.convertIt.Calculator"
             android:exported="false" />
         <activity
-            android:name="com.example.convertit.Dashboard"
+            android:name="com.example.convertIt.Dashboard"
             android:exported="false" />
         <activity
-            android:name="com.example.convertit.OnBoarding"
+            android:name="com.example.convertIt.OnBoarding"
             android:exported="false" />
         <activity
-            android:name="com.example.convertit.SplashScreen"
+            android:name="com.example.convertIt.SplashScreen"
             android:exported="true"
-            android:theme="@style/Theme.ConverIt.MyConvertIt">
+            android:theme="@style/Theme.ConvertIt.MyConvertIt">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,4 +1,4 @@
-package com.example.convertit;
+package com.example.convertIt;
 
 import android.content.Context;
 

@@ -1,35 +1,32 @@
-package com.example.convertit;
+package com.example.convertIt;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.WindowCompat;
-
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
-
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.WindowCompat;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import java.text.DecimalFormat;
 
 public class Area extends AppCompatActivity {
 
+
     private EditText editSquareMeter;
-    private EditText editSquareFeet;;
+    private EditText editSquareFeet;
     private EditText editSquareYards;
     private EditText editAcres;
     private EditText editHectares;
     private String value;
-    private View.OnFocusChangeListener onFocusChangeListener;
     private int focusedViewId;
     private TextWatcher textWatcher;
 
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,23 +45,20 @@ public class Area extends AppCompatActivity {
 
         bottomNavigationView.setSelectedItemId(R.id.nav_home);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
+        bottomNavigationView.setOnNavigationItemSelectedListener(menuItem -> {
+            switch (menuItem.getItemId()) {
 
-                    case R.id.nav_home:
-                        startActivity(new Intent(getApplicationContext(), Dashboard.class));
-                        overridePendingTransition(0, 0);
-                        return true;
+                case R.id.nav_home:
+                    startActivity(new Intent(getApplicationContext(), Dashboard.class));
+                    overridePendingTransition(0, 0);
+                    return true;
 
-                    case R.id.nav_calculator:
-                        startActivity(new Intent(getApplicationContext(), Calculator.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                }
-                return false;
+                case R.id.nav_calculator:
+                    startActivity(new Intent(getApplicationContext(), Calculator.class));
+                    overridePendingTransition(0, 0);
+                    return true;
             }
+            return false;
         });
 
         editSquareMeter = findViewById(R.id.squareMeter);
@@ -100,26 +94,21 @@ public class Area extends AppCompatActivity {
             }
         };
 
-        onFocusChangeListener = new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus){
-                if (hasFocus){
-                    focusedViewId = v.getId();
-                    ((EditText) findViewById(focusedViewId)).addTextChangedListener(textWatcher);
-                    if(focusedViewId == R.id.squareMeter){
-                        v.setBackgroundResource(R.drawable.field);
-                    }
+        View.OnFocusChangeListener onFocusChangeListener = (v, hasFocus) -> {
+            if (hasFocus) {
+                focusedViewId = v.getId();
+                ((EditText) findViewById(focusedViewId)).addTextChangedListener(textWatcher);
+                if (focusedViewId == R.id.squareMeter) {
                     v.setBackgroundResource(R.drawable.field);
                 }
-                else{
+            } else {
 
-                    ((EditText) findViewById(focusedViewId)).removeTextChangedListener(textWatcher);
-                    if(focusedViewId != R.id.squareMeter){
-                        v.setBackgroundResource(R.drawable.field);
-                    }
+                ((EditText) findViewById(focusedViewId)).removeTextChangedListener(textWatcher);
+                if (focusedViewId != R.id.squareMeter) {
                     v.setBackgroundResource(R.drawable.field);
                 }
             }
+            v.setBackgroundResource(R.drawable.field);
         };
 
         editSquareMeter.setOnFocusChangeListener(onFocusChangeListener);
@@ -138,56 +127,57 @@ public class Area extends AppCompatActivity {
         editHectares.setText("");
     }
 
+    @SuppressLint("NonConstantResourceId")
     private void convert() {
         try {
-            double num = 0;
-            DecimalFormat dform = new DecimalFormat("###,###,###,###,###,###.###########");
+            double num;
+            DecimalFormat decimalFormat = new DecimalFormat("###,###,###,###,###,###.###########");
 
             switch (focusedViewId){
 
                 case R.id.squareMeter:
                     num = Double.parseDouble(value);
 
-                    editSquareFeet.setText(dform.format((num*10.764)));
-                    editSquareYards.setText(dform.format((num*1.196)));
-                    editAcres.setText(dform.format((num*0.000247)));
-                    editHectares.setText(dform.format((num/10000)));
+                    editSquareFeet.setText(decimalFormat.format((num*10.764)));
+                    editSquareYards.setText(decimalFormat.format((num*1.196)));
+                    editAcres.setText(decimalFormat.format((num*0.000247)));
+                    editHectares.setText(decimalFormat.format((num/10000)));
                     break;
 
                 case R.id.squareFeet:
                     num = Double.parseDouble(value);
 
-                    editSquareMeter.setText(dform.format((num/10.764)));
-                    editSquareYards.setText(dform.format((num/9)));
-                    editAcres.setText(dform.format((num/43560)));
-                    editHectares.setText(dform.format((num/107639)));
+                    editSquareMeter.setText(decimalFormat.format((num/10.764)));
+                    editSquareYards.setText(decimalFormat.format((num/9)));
+                    editAcres.setText(decimalFormat.format((num/43560)));
+                    editHectares.setText(decimalFormat.format((num/107639)));
                     break;
 
                 case R.id.squareYard:
                     num = Double.parseDouble(value);
 
-                    editSquareMeter.setText(dform.format((num* 0.836127)));
-                    editSquareFeet.setText(dform.format((num*9)));
-                    editAcres.setText(dform.format((num/4840)));
-                    editHectares.setText(dform.format((num/11960)));
+                    editSquareMeter.setText(decimalFormat.format((num* 0.836127)));
+                    editSquareFeet.setText(decimalFormat.format((num*9)));
+                    editAcres.setText(decimalFormat.format((num/4840)));
+                    editHectares.setText(decimalFormat.format((num/11960)));
                     break;
 
                 case R.id.acres:
                     num = Double.parseDouble(value);
 
-                    editSquareMeter.setText(dform.format((num*4046.856422)));
-                    editSquareFeet.setText(dform.format((num*43560)));
-                    editSquareYards.setText(dform.format((num*4840)));
-                    editHectares.setText(dform.format((num*0.404686)));
+                    editSquareMeter.setText(decimalFormat.format((num*4046.856422)));
+                    editSquareFeet.setText(decimalFormat.format((num*43560)));
+                    editSquareYards.setText(decimalFormat.format((num*4840)));
+                    editHectares.setText(decimalFormat.format((num*0.404686)));
                     break;
 
                 case R.id.hectares:
                     num = Double.parseDouble(value);
 
-                    editSquareMeter.setText(dform.format((num* 10000)));
-                    editSquareFeet.setText(dform.format((num*107639)));
-                    editSquareYards.setText(dform.format((num*11960)));
-                    editAcres.setText(dform.format((num*2.471)));
+                    editSquareMeter.setText(decimalFormat.format((num* 10000)));
+                    editSquareFeet.setText(decimalFormat.format((num*107639)));
+                    editSquareYards.setText(decimalFormat.format((num*11960)));
+                    editAcres.setText(decimalFormat.format((num*2.471)));
                     break;
             }
 

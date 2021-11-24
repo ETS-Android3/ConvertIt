@@ -1,25 +1,22 @@
-package com.example.convertit;
+package com.example.convertIt;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.WindowCompat;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import java.text.DecimalFormat;
-import java.text.NumberFormat;
-import java.util.Locale;
+
 
 public class Length extends AppCompatActivity {
+
 
     private EditText editMeter;
     private EditText editKilometer;
@@ -27,11 +24,11 @@ public class Length extends AppCompatActivity {
     private EditText editFeet;
     private EditText editYard;
     private String value;
-    private View.OnFocusChangeListener onFocusChangeListener;
     private int focusedViewId;
     private TextWatcher textWatcher;
 
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,26 +47,21 @@ public class Length extends AppCompatActivity {
 
         bottomNavigationView.setSelectedItemId(R.id.nav_home);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
+        bottomNavigationView.setOnNavigationItemSelectedListener(menuItem -> {
+            switch (menuItem.getItemId()) {
 
-                    case R.id.nav_home:
-                        startActivity(new Intent(getApplicationContext(), Dashboard.class));
-                        overridePendingTransition(0, 0);
-                        return true;
+                case R.id.nav_home:
+                    startActivity(new Intent(getApplicationContext(), Dashboard.class));
+                    overridePendingTransition(0, 0);
+                    return true;
 
-                    case R.id.nav_calculator:
-                        startActivity(new Intent(getApplicationContext(), Calculator.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                }
-                return false;
+                case R.id.nav_calculator:
+                    startActivity(new Intent(getApplicationContext(), Calculator.class));
+                    overridePendingTransition(0, 0);
+                    return true;
             }
+            return false;
         });
-
-
 
         editMeter = findViewById(R.id.meter);
         editKilometer = findViewById(R.id.kilometer);
@@ -83,7 +75,6 @@ public class Length extends AppCompatActivity {
 
         ImageButton backButton = findViewById(R.id.backBtn);
         backButton.setOnClickListener(v -> onBackPressed());
-
 
         textWatcher = new TextWatcher() {
             @Override
@@ -104,22 +95,20 @@ public class Length extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
 
-
             }
         };
 
-        onFocusChangeListener = (v, hasFocus) -> {
-            if (hasFocus){
+        View.OnFocusChangeListener onFocusChangeListener = (v, hasFocus) -> {
+            if (hasFocus) {
                 focusedViewId = v.getId();
                 ((EditText) findViewById(focusedViewId)).addTextChangedListener(textWatcher);
-                if(focusedViewId == R.id.meter){
+                if (focusedViewId == R.id.meter) {
                     v.setBackgroundResource(R.drawable.field);
                 }
-            }
-            else{
+            } else {
 
                 ((EditText) findViewById(focusedViewId)).removeTextChangedListener(textWatcher);
-                if(focusedViewId != R.id.meter){
+                if (focusedViewId != R.id.meter) {
                     v.setBackgroundResource(R.drawable.field);
                 }
             }
@@ -134,7 +123,6 @@ public class Length extends AppCompatActivity {
 
     }
 
-
     private void clearFields(){
         editMeter.setText("");
         editKilometer.setText("");
@@ -143,58 +131,57 @@ public class Length extends AppCompatActivity {
         editYard.setText("");
     }
 
+    @SuppressLint("NonConstantResourceId")
     private void convert() {
         try {
-            double num = 0;
-            DecimalFormat dform = new DecimalFormat("###,###,###,###,###,###.#######");
+            double num;
+            DecimalFormat decimalFormat = new DecimalFormat("###,###,###,###,###,###.#######");
 
             switch (focusedViewId){
 
                 case R.id.meter:
                     num = Double.parseDouble(value);
 
-                    editKilometer.setText(dform.format((num/1000)));
-                    editInches.setText(dform.format((num*39.37)));
-                    editFeet.setText(dform.format((num*3.281)));
-                    editYard.setText(dform.format((num*1.094)));
+                    editKilometer.setText(decimalFormat.format((num/1000)));
+                    editInches.setText(decimalFormat.format((num*39.37)));
+                    editFeet.setText(decimalFormat.format((num*3.281)));
+                    editYard.setText(decimalFormat.format((num*1.094)));
                     break;
 
                 case R.id.kilometer:
                     num = Double.parseDouble(value);
 
-                    editMeter.setText(dform.format((num*1000.00)));
-                    editInches.setText(dform.format(num*39370.00));
-                    editFeet.setText(dform.format((num*3281.00)));
-                    editYard.setText(dform.format((num*1094.00)));
+                    editMeter.setText(decimalFormat.format((num*1000.00)));
+                    editInches.setText(decimalFormat.format(num*39370.00));
+                    editFeet.setText(decimalFormat.format((num*3281.00)));
+                    editYard.setText(decimalFormat.format((num*1094.00)));
                     break;
 
                 case R.id.inches:
                     num = Double.parseDouble(value);
-
-
-                    editMeter.setText(dform.format((num/39.37)));
-                    editKilometer.setText(dform.format((num* 0.0000254)));
-                    editFeet.setText(dform.format((num/12)));
-                    editYard.setText(dform.format((num/36)));
+                    
+                    editMeter.setText(decimalFormat.format((num/39.37)));
+                    editKilometer.setText(decimalFormat.format((num* 0.0000254)));
+                    editFeet.setText(decimalFormat.format((num/12)));
+                    editYard.setText(decimalFormat.format((num/36)));
                     break;
 
                 case R.id.feet:
                     num = Double.parseDouble(value);
 
-
-                    editMeter.setText(dform.format((num/3.281)));
-                    editKilometer.setText(dform.format((num*0.000305)));
-                    editInches.setText(dform.format((num*12)));
-                    editYard.setText(dform.format((num/3)));
+                    editMeter.setText(decimalFormat.format((num/3.281)));
+                    editKilometer.setText(decimalFormat.format((num*0.000305)));
+                    editInches.setText(decimalFormat.format((num*12)));
+                    editYard.setText(decimalFormat.format((num/3)));
                     break;
 
                 case R.id.yard:
                     num = Double.parseDouble(value);
 
-                    editMeter.setText(dform.format((num/1.0936)));
-                    editKilometer.setText(dform.format((num*0.000914)));
-                    editInches.setText(dform.format((num*36)));
-                    editFeet.setText(dform.format((num*3)));
+                    editMeter.setText(decimalFormat.format((num/1.0936)));
+                    editKilometer.setText(decimalFormat.format((num*0.000914)));
+                    editInches.setText(decimalFormat.format((num*36)));
+                    editFeet.setText(decimalFormat.format((num*3)));
                     break;
             }
 
@@ -202,9 +189,6 @@ public class Length extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-
-
-
 }
 
 

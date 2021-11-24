@@ -1,24 +1,21 @@
-package com.example.convertit;
+package com.example.convertIt;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.WindowCompat;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.WindowCompat;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import java.text.DecimalFormat;
 
 public class Mass extends AppCompatActivity {
+
 
     private EditText editMilligrams;
     private EditText editGrams;
@@ -26,11 +23,11 @@ public class Mass extends AppCompatActivity {
     private EditText editTons;
     private EditText editPounds;
     private String value;
-    private View.OnFocusChangeListener onFocusChangeListener;
     private int focusedViewId;
     private TextWatcher textWatcher;
 
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,23 +46,20 @@ public class Mass extends AppCompatActivity {
 
         bottomNavigationView.setSelectedItemId(R.id.nav_home);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
+        bottomNavigationView.setOnNavigationItemSelectedListener(menuItem -> {
+            switch (menuItem.getItemId()) {
 
-                    case R.id.nav_home:
-                        startActivity(new Intent(getApplicationContext(), Dashboard.class));
-                        overridePendingTransition(0, 0);
-                        return true;
+                case R.id.nav_home:
+                    startActivity(new Intent(getApplicationContext(), Dashboard.class));
+                    overridePendingTransition(0, 0);
+                    return true;
 
-                    case R.id.nav_calculator:
-                        startActivity(new Intent(getApplicationContext(), Calculator.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                }
-                return false;
+                case R.id.nav_calculator:
+                    startActivity(new Intent(getApplicationContext(), Calculator.class));
+                    overridePendingTransition(0, 0);
+                    return true;
             }
+            return false;
         });
 
         editMilligrams = findViewById(R.id.milligram);
@@ -101,26 +95,21 @@ public class Mass extends AppCompatActivity {
 
         };
 
-        onFocusChangeListener = new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus){
-                if (hasFocus){
-                    focusedViewId = v.getId();
-                    ((EditText) findViewById(focusedViewId)).addTextChangedListener(textWatcher);
-                    if(focusedViewId == R.id.milligram){
-                        v.setBackgroundResource(R.drawable.field);
-                    }
+        View.OnFocusChangeListener onFocusChangeListener = (v, hasFocus) -> {
+            if (hasFocus) {
+                focusedViewId = v.getId();
+                ((EditText) findViewById(focusedViewId)).addTextChangedListener(textWatcher);
+                if (focusedViewId == R.id.milligram) {
                     v.setBackgroundResource(R.drawable.field);
                 }
-                else{
+            } else {
 
-                    ((EditText) findViewById(focusedViewId)).removeTextChangedListener(textWatcher);
-                    if(focusedViewId != R.id.milligram){
-                        v.setBackgroundResource(R.drawable.field);
-                    }
+                ((EditText) findViewById(focusedViewId)).removeTextChangedListener(textWatcher);
+                if (focusedViewId != R.id.milligram) {
                     v.setBackgroundResource(R.drawable.field);
                 }
             }
+            v.setBackgroundResource(R.drawable.field);
         };
 
         editMilligrams.setOnFocusChangeListener(onFocusChangeListener);
@@ -131,7 +120,6 @@ public class Mass extends AppCompatActivity {
 
     }
 
-
     private void clearFields(){
         editMilligrams.setText("");
         editGrams.setText("");
@@ -140,56 +128,57 @@ public class Mass extends AppCompatActivity {
         editPounds.setText("");
     }
 
+    @SuppressLint("NonConstantResourceId")
     private void convert() {
         try {
-            double num = 0;
-            DecimalFormat dform = new DecimalFormat("###,###,###,###,###,###.###########");
+            double num;
+            DecimalFormat decimalFormat = new DecimalFormat("###,###,###,###,###,###.###########");
 
             switch (focusedViewId){
 
                 case R.id.milligram:
                     num = Double.parseDouble(value);
 
-                    editGrams.setText(dform.format((num/1000)));
-                    editKilogram.setText(dform.format((num/1000000)));
-                    editTons.setText(dform.format((num/1000000000)));
-                    editPounds.setText(dform.format((num*0.0000022)));
+                    editGrams.setText(decimalFormat.format((num/1000)));
+                    editKilogram.setText(decimalFormat.format((num/1000000)));
+                    editTons.setText(decimalFormat.format((num/1000000000)));
+                    editPounds.setText(decimalFormat.format((num*0.0000022)));
                     break;
 
                 case R.id.grams:
                     num = Double.parseDouble(value);
 
-                    editMilligrams.setText(dform.format((num*1000)));
-                    editKilogram.setText(dform.format((num/1000)));
-                    editTons.setText(dform.format((num/1000000)));
-                    editPounds.setText(dform.format((num*0.00220462)));
+                    editMilligrams.setText(decimalFormat.format((num*1000)));
+                    editKilogram.setText(decimalFormat.format((num/1000)));
+                    editTons.setText(decimalFormat.format((num/1000000)));
+                    editPounds.setText(decimalFormat.format((num*0.00220462)));
                     break;
 
                 case R.id.kilogram:
                     num = Double.parseDouble(value);
 
-                    editMilligrams.setText(dform.format((num*1000000)));
-                    editGrams.setText(dform.format((num*1000)));
-                    editTons.setText(dform.format((num/1000)));
-                    editPounds.setText(dform.format((num*2.205)));
+                    editMilligrams.setText(decimalFormat.format((num*1000000)));
+                    editGrams.setText(decimalFormat.format((num*1000)));
+                    editTons.setText(decimalFormat.format((num/1000)));
+                    editPounds.setText(decimalFormat.format((num*2.205)));
                     break;
 
                 case R.id.tons:
                     num = Float.parseFloat(value);
 
-                    editMilligrams.setText(dform.format((num*1000000000)));
-                    editGrams.setText(dform.format((num*1000000)));
-                    editKilogram.setText(dform.format((num*1000)));
-                    editPounds.setText(dform.format((num*2205)));
+                    editMilligrams.setText(decimalFormat.format((num*1000000000)));
+                    editGrams.setText(decimalFormat.format((num*1000000)));
+                    editKilogram.setText(decimalFormat.format((num*1000)));
+                    editPounds.setText(decimalFormat.format((num*2205)));
                     break;
 
                 case R.id.pounds:
                     num = Double.parseDouble(value);
 
-                    editMilligrams.setText(dform.format((num*453592.37)));
-                    editGrams.setText(dform.format((num*453.59237)));
-                    editKilogram.setText(dform.format((num*0.453592)));
-                    editTons.setText(dform.format((num*0.00045359237)));
+                    editMilligrams.setText(decimalFormat.format((num*453592.37)));
+                    editGrams.setText(decimalFormat.format((num*453.59237)));
+                    editKilogram.setText(decimalFormat.format((num*0.453592)));
+                    editTons.setText(decimalFormat.format((num*0.00045359237)));
                     break;
             }
 
