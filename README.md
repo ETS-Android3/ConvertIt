@@ -1,7 +1,7 @@
 Convert It
 =======================
 
-<img src="screenshot/logo.png" width="300" align="right">
+<img src="screenshots/logo.png" width="300" align="right">
 
 *A simple, minimalistic design themed unit converter.*
 
