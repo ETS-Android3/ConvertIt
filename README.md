@@ -98,9 +98,11 @@ Don't forget to give the project a star! Thanks again!
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Jefferson Caulawon- jefferson.caulawon@g.batstate-u.edu.ph
+Kristia Isabelle Samson - kristiaisabelle.samson@g.batstate-u.edu.ph
+Pauline Mae Ona - paulinemae.ona@g.batstate-u.edu.ph
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Project Link: [https://github.com/paulineona/ConvertIt](https://github.com/paulineona/ConvertIt)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
