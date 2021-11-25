@@ -91,9 +91,9 @@ Available unit conversions include:
 </p>
   
 <p align="middle">
-   <img src="screenshots/area.png" width="30%"/>
+   <img src="screenshots/areav2.png" width="30%"/>
 
-  <img src="screenshots/time.png" width="30%"/>
+  <img src="screenshots/timev2.png" width="30%"/>
 
   <img src="screenshots/calculator.png" width="30%"/>
 </p>
