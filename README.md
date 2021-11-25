@@ -25,13 +25,6 @@ Convert It is an andoid application which performs the functions of a basic calc
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -59,6 +52,7 @@ Available unit conversions include:
 ### Built With
 
 * [Android Studio](https://developer.android.com/)
+* [Java](https://www.java.com/en/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
