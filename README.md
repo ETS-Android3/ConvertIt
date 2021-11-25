@@ -39,7 +39,7 @@ Convert It is an android application which performs the functions of a basic cal
 <!-- ABOUT THE PROJECT -->
 ## About The Project
   
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![About][screenshot]](https://github.com/paulineona/ConvertIt)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -165,6 +165,6 @@ Project Link: [https://github.com/paulineona/ConvertIt](https://github.com/pauli
 </div>
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[product-screenshot]: screenshots/about.png
+[screenshot]: screenshots/about2.png
 
 
