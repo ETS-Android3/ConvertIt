@@ -26,6 +26,7 @@ Convert It is an andoid application which performs the functions of a basic calc
       </ul>
     </li>
     <li><a href="#features">Features</a></li>
+      <li><a href="#demo">Demo</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -98,6 +99,17 @@ Available unit conversions include:
   <img src="screenshots/calculator.png" width="30%"/>
 </p>
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+  
+</div>
+
+<div id="demo">
+  
+<!-- DEMO -->
+## Demo
+  
+* <a href="https://youtu.be/P7sXY7sx-w4">Link for the demo video of the Convert It</a>
+  
 <p align="right">(<a href="#top">back to top</a>)</p>
   
 </div>
