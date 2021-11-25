@@ -10,7 +10,7 @@
 <h3 align="center">Convert It</h3>
 
   <p align="center">
-Convert It is an andoid application which performs the functions of a basic calculator and unit converter. The simple user interface allows for quick and easy conversions from a number in one unit to another.  
+Convert It is an android application which performs the functions of a basic calculator and unit converter. The simple user interface allows for quick and easy conversions from a number in one unit to another.  
 </div>
 
 
