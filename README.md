@@ -74,28 +74,28 @@ Available unit conversions include:
 <p align="middle">
   
   
-  <img src="screenshots/splashscreen.png" width="25%"/>
+  <img src="screenshots/splashscreen.png" width="30%"/>
 
-  <img src="screenshots/on-boarding.png" width="25%"/>
+  <img src="screenshots/on-boarding.png" width="30%"/>
 
-  <img src="screenshots/dashboard.png" width="25%"/>
+  <img src="screenshots/dashboard.png" width="30%"/>
 </p>
 
   
 <p align="middle">
-   <img src="screenshots/length.png" width="25%"/>
+   <img src="screenshots/length.png" width="30%"/>
 
-  <img src="screenshots/volume.png" width="25%"/>
+  <img src="screenshots/volume.png" width="30%"/>
 
-  <img src="screenshots/mass.png" width="25%"/>
+  <img src="screenshots/mass.png" width="30%"/>
 </p>
   
 <p align="middle">
-   <img src="screenshots/area.png" width="25%"/>
+   <img src="screenshots/area.png" width="30%"/>
 
-  <img src="screenshots/time.png" width="25%"/>
+  <img src="screenshots/time.png" width="30%"/>
 
-  <img src="screenshots/calculator.png" width="25%"/>
+  <img src="screenshots/calculator.png" width="30%"/>
 </p>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
