@@ -20,12 +20,12 @@ Convert It is an andoid application which performs the functions of a basic calc
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
+      <a href="#about">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
+    <li><a href="#screenshots">Screenshots</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -33,10 +33,11 @@ Convert It is an andoid application which performs the functions of a basic calc
 </details>
 
 
-
+<div id="about">
+  
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
+  
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -48,7 +49,7 @@ Available unit conversions include:
 * Area (Square Meter, Square Feet, Square Yards, Acres, Hectares)
 * Time (Hours, Minutes, Seconds)
 
-
+  <div id="built-with">
 ### Built With
 
 * [Android Studio](https://developer.android.com/)
@@ -56,18 +57,24 @@ Available unit conversions include:
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+  </div>
+</div>
 
-<!-- USAGE EXAMPLES -->
-## Usage
+
+<div id="screenshots">
+  
+<!-- SCREENSHOTS -->
+## Screenshots
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
 
-
 <p align="right">(<a href="#top">back to top</a>)</p>
+  
+</div>
 
-
-
+<div id="contributing">
+  
 <!-- CONTRIBUTING -->
 ## Contributing
 
@@ -84,7 +91,10 @@ Don't forget to give the project a star! Thanks again!
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+</div>
 
+<div id="contact">
+  
 <!-- CONTACT -->
 ## Contact
 
@@ -96,8 +106,10 @@ Project Link: [https://github.com/paulineona/ConvertIt](https://github.com/pauli
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+</div>
 
-
+<div id="acknowledgements">
+  
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
@@ -108,6 +120,7 @@ Project Link: [https://github.com/paulineona/ConvertIt](https://github.com/pauli
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
+</div>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [product-screenshot]: screenshots/about.png
