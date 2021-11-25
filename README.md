@@ -25,7 +25,7 @@ Convert It is an andoid application which performs the functions of a basic calc
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
-    <li><a href="#screenshots">Screenshots</a></li>
+    <li><a href="#features">Features</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -61,12 +61,24 @@ Available unit conversions include:
 </div>
 
 
-<div id="screenshots">
+<div id="features">
   
-<!-- SCREENSHOTS -->
-## Screenshots
+<!-- FEATURES -->
+## Features
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+* No internet connection is required. All conversions can be calculated offline.
+* The conversion results appear instantly while entering the input data.
+* The unit conversion is based on data retrieved from <a href="https://www.google.com/">Google</a> and <a href="https://www.inchcalculator.com/">Inch Calculator</a>.
+* The standard calulator offers basic operations and evaluates commands immediately as they are entered.
+  
+<p align="middle">
+  
+  <img src="" width="25%"/>
+
+  <img src="" width="25%"/>
+
+  <img src="" width="25%"/>
+</p>
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
