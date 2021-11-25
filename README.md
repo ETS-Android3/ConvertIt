@@ -69,6 +69,7 @@ Available unit conversions include:
 
 * No internet connection is required. All conversions can be calculated offline.
 * The conversion results appear instantly while entering the input data.
+* The conversion values are up to Million only.
 * The unit conversion is based on data retrieved from <a href="https://www.google.com/">Google</a> and <a href="https://www.inchcalculator.com/">Inch Calculator</a>.
 * The standard calulator offers basic operations and evaluates commands immediately as they are entered.
   
