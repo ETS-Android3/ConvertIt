@@ -3,13 +3,11 @@ package com.example.convertIt;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.WindowCompat;
 
@@ -27,7 +25,7 @@ public class Calculator extends AppCompatActivity {
     boolean checkP = false;
 
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint({"SetTextI18n", "NonConstantResourceId"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,20 +44,17 @@ public class Calculator extends AppCompatActivity {
 
         bottomNavigationView.setSelectedItemId(R.id.nav_calculator);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
+        bottomNavigationView.setOnNavigationItemSelectedListener(menuItem -> {
+            switch (menuItem.getItemId()) {
 
-                    case R.id.nav_home:
-                        startActivity(new Intent(getApplicationContext(), Dashboard.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                    case R.id.nav_calculator:
-                        return true;
-                }
-                return false;
+                case R.id.nav_home:
+                    startActivity(new Intent(getApplicationContext(), Dashboard.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                case R.id.nav_calculator:
+                    return true;
             }
+            return false;
         });
 
         ImageButton backButton = findViewById(R.id.backBtn);
@@ -186,7 +181,7 @@ public class Calculator extends AppCompatActivity {
             Context rhino = Context.enter();
             rhino.setOptimizationLevel(-1);
 
-            String finalResult = "";
+            String finalResult;
 
             try {
                 Scriptable scriptable = rhino.initStandardObjects();
