@@ -141,8 +141,8 @@ Don't forget to give the project a star! Thanks again!
 ## Contact
 
 * Jefferson Caulawon- jefferson.caulawon@g.batstate-u.edu.ph
-* Kristia Isabelle Samson - kristiaisabelle.samson@g.batstate-u.edu.ph
 * Pauline Mae Ona - paulinemae.ona@g.batstate-u.edu.ph
+* Kristia Isabelle Samson - kristiaisabelle.samson@g.batstate-u.edu.ph
 
 Project Link: [https://github.com/paulineona/ConvertIt](https://github.com/paulineona/ConvertIt)
 
